@@ -1,0 +1,57 @@
+<div class="form-group">
+
+  <form autocomplete="off" [formGroup]="payeeForm">
+    <h1>Nuevo Destinatario</h1>
+    <hr>
+    <h2>Destinatario</h2>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label>Rut</mat-label>
+      <input matInput formControlName="rut">
+    </mat-form-field>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label>Número Teléfono</mat-label>
+      <input matInput formControlName="phoneNumber">
+    </mat-form-field>
+
+    <h2>Datos Cuenta</h2>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Banco</mat-label>
+      <select matNativeControl required formControlName="bankId">
+
+        <option *ngFor="let bank of banks" value="{{ bank.id }}">{{ bank.name }}</option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo</mat-label>
+      <select matNativeControl required formControlName="accountType">
+
+        <option value="vista">Vista</option>
+        <option value="corriente">Corriente</option>
+        <option value="ahorro">Ahorro</option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field class="ancho" appearance="fill">
+      <mat-label>Número</mat-label>
+      <input matInput formControlName="accountNumber">
+    </mat-form-field>
+
+
+    <br>
+    <button (click)="register()" class="ancho" mat-raised-button mat-button color="primary">Registrar</button>
+  </form>
+</div>
