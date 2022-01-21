@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { map } from 'rxjs';
 import { Bank } from 'src/app/interfaces/bank.inteface';
+import { AccountService } from 'src/app/services/account.service';
 import { BanksService } from 'src/app/services/banks.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-payee',
@@ -11,7 +14,9 @@ import { BanksService } from 'src/app/services/banks.service';
 })
 export class PayeeComponent implements OnInit {
 
-  banks: Bank[]= [];
+  banks: Bank[] = [];
+  isLoading: boolean = false;
+
 
   public payeeForm= this.fb.group({
     name:           ['felipe', [ Validators.required ]],
@@ -24,35 +29,41 @@ export class PayeeComponent implements OnInit {
   });
 
   constructor(
-    private bankService: BanksService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private accountService: AccountService,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit(): void {
-    this.getBanks();
+    this.getBanksOfLocalStorage();
   }
 
-  getBanks(){
-    const banks = this.bankService.getBanks()
-    .subscribe( (banks: Bank[]) => {
-      this.banks = banks;
-      console.log(banks);
-    })
-
+  getBanksOfLocalStorage(){
+    this.banks = JSON.parse(localStorage.getItem('banks') || '[]');
   }
 
   register(){
-
-    console.log('pase por aca');
 
     if(!this.payeeForm.valid){
       return;
     }
 
+    this.isLoading = true;
+    this.accountService.postPayee(this.payeeForm.value)
+                      .subscribe({
+                        next: resp => {
+                          this.openSnackBar(resp.msg);
+                        },
+                        error: (err) => {
+                          this.openSnackBar(err.error.error)
+                        }
+                      });
 
-    console.log(this.payeeForm.value);
+    this.isLoading = false;
+  }
 
-
+  openSnackBar(message: string, textBtn: string = 'Aceptar'){
+    this.snackBar.open(message, textBtn);
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Bank } from '../interfaces/bank.inteface';
+import { BanksService } from '../services/banks.service';
 
 @Component({
   selector: 'app-page',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private bankService: BanksService
+  ) { }
 
   ngOnInit(): void {
+    this.getBanksAndSaveToLocalStorage();
+  }
+
+  getBanksAndSaveToLocalStorage(){
+
+    this.bankService.getBanks()
+    .subscribe( (banks: Bank[]) => {
+      localStorage.setItem('banks', JSON.stringify(banks));
+    })
+
   }
 
 }

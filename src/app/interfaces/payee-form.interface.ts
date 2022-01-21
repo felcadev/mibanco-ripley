@@ -1,5 +1,5 @@
 
-export interface Payee {
+export interface PayeeForm {
   name: string,
   rut: string,
   email: string,

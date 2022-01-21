@@ -1,0 +1,29 @@
+<h2> Mis Cuentas</h2>
+
+<div>
+  <h3>Busqueda Nombre o Rut</h3>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Nombre o Rut</mat-label>
+    <input matInput [(ngModel)]="textSearch" (ngModelChange)="textSearchChanged()"/>
+  </mat-form-field>
+</div>
+
+<mat-list>
+  <hr>
+  <mat-list-item *ngFor="let payee of payeeAccounts">
+    <div mat-line>Nombre: {{ payee.name }}</div>
+    <div mat-line>Email:  {{ payee.email }} </div>
+    <div mat-line>Rut:  {{ payee.rut }} </div>
+    <div mat-line>
+      <mat-list>
+        <mat-list-item  at-list-item *ngFor="let account of payee.accounts">
+          <div mat-line>Banco: {{ account.bankName }}</div>
+          <div mat-line>Tipo: {{ account.type }}</div>
+          <div mat-line>Número de Cuenta: {{ account.number }}</div>
+          <button class="ancho" mat-raised-button mat-button color="primary">Transferir</button>
+        </mat-list-item>
+        <hr>
+      </mat-list>
+    </div>
+  </mat-list-item>
+</mat-list>

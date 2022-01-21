@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Payee } from 'src/app/models/payee.model';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-transfer',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransferComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

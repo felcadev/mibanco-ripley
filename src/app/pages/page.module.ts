@@ -10,7 +10,8 @@ import { HistoryComponent } from './history/history.component';
 import { ComponentsModule } from '../components/components.module';
 import { PageComponent } from './page.component';
 import { AuthRoutingModule } from '../auth/auth.routing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccountsComponent } from './accounts/accounts.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TransferComponent,
     HistoryComponent,
     PageComponent,
+    AccountsComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PagesRoutingModule,
     AuthRoutingModule,
     ReactiveFormsModule,
+    FormsModule
 
   ],
   exports: [
@@ -34,7 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     TransferComponent,
     HistoryComponent,
     PageComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 

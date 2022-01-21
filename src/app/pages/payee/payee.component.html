@@ -52,6 +52,13 @@
 
 
     <br>
-    <button (click)="register()" class="ancho" mat-raised-button mat-button color="primary">Registrar</button>
+
+    <button  *ngIf="isLoading" class="ancho" mat-raised-button mat-button color="primary">
+      <mat-spinner  diameter="20" class="spinner"></mat-spinner>
+    </button>
+    <button (click)="register()" [disabled]="isLoading" class="ancho" mat-raised-button mat-button color="primary">
+      Registrar
+    </button>
+
   </form>
 </div>

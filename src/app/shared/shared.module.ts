@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -30,7 +31,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTooltipModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule
   ],
   exports: [
     MatSliderModule,
@@ -42,7 +44,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     MatTooltipModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule
   ]
 })
 

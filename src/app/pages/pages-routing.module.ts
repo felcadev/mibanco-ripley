@@ -8,6 +8,7 @@ import { PayeeComponent } from './payee/payee.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { HistoryComponent } from './history/history.component';
 import { PageComponent } from './page.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
     children: [
       { path: 'payee'     , canActivate: [AuthGuard] ,component: PayeeComponent },
       { path: 'transfer'  , canActivate: [AuthGuard] ,component: TransferComponent },
+      { path: 'accounts'  , canActivate: [AuthGuard] ,component: AccountsComponent },
       { path: 'history'   , canActivate: [AuthGuard] ,component: HistoryComponent },
     ]
   },

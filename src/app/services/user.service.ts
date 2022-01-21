@@ -19,13 +19,28 @@ export class UserService {
     private router: Router,
   ) { }
 
+
+  get token(): string {
+    return localStorage.getItem('token') || '';
+  }
+
+  get headers() {
+    return {
+      headers: {
+        'x-token': this.token
+      }
+    }
+  }
+
+
+
   login( formData: LoginForm): Observable<any>{
 
     return this.http.post(`${api_base_url}/login`, formData)
                   .pipe(
                     tap(
                       ( resp: any ) => {
-                        localStorage.setItem('token', resp.token)
+                        localStorage.setItem('token', `${resp.token}`)
                       }
                     )
                   );
@@ -34,7 +49,6 @@ export class UserService {
   logout() {
 
     localStorage.removeItem('token');
-
     this.router.navigateByUrl('/login');
 
   }
@@ -43,11 +57,7 @@ export class UserService {
 
     const token = localStorage.getItem('token') || '';
 
-    return this.http.get(`${ api_base_url }/login/renew`, {
-            headers: {
-              'x-token': token
-            }
-          }).pipe(
+    return this.http.get(`${ api_base_url }/login/renew`, this.headers).pipe(
             tap( (resp: any) => {
               localStorage.setItem('token', resp.token );
             }),
