@@ -13,6 +13,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 
 
@@ -32,7 +34,9 @@ import { MatListModule } from '@angular/material/list';
     MatSnackBarModule,
     MatTooltipModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatCardModule
   ],
   exports: [
     MatSliderModule,
@@ -45,7 +49,9 @@ import { MatListModule } from '@angular/material/list';
     MatSnackBarModule,
     MatTooltipModule,
     MatSelectModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatCardModule
   ]
 })
 

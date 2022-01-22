@@ -1,1 +1,28 @@
-<h1>Transfer</h1>
+<mat-card>
+  <h1>Realizar Transferencia</h1>
+  <h2> Datos Destinatario</h2>
+  <mat-list *ngIf="payee">
+    <mat-list-item> Nombre :<strong> {{ payee.name }}</strong>   </mat-list-item>
+    <mat-list-item> Rut :<strong>{{ payee.rut }}</strong> </mat-list-item>
+    <mat-list-item> Correo :<strong>{{ payee.email }}</strong>  </mat-list-item>
+  </mat-list>
+  <br>
+
+  <h2> Datos Cuenta</h2>
+  <mat-list *ngIf="account">
+    <mat-list-item> Banco: <strong>{{ account.bankName }}</strong> </mat-list-item>
+    <mat-list-item> Tipo: <strong>{{ account.type }}</strong> </mat-list-item>
+    <mat-list-item> Número: <strong>{{ account.number }}</strong> </mat-list-item>
+  </mat-list>
+
+  <div>
+    <h2>Deposito</h2>
+    <form [formGroup]="transferForm" (submit)="transfer()" autocomplete="off">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Monto</mat-label>
+        <input matInput formControlName="amount" type="number" required/>
+      </mat-form-field>
+      <button class="ancho" mat-raised-button mat-button color="primary" class="full-width">Transferir</button>
+    </form>
+  </div>
+</mat-card>

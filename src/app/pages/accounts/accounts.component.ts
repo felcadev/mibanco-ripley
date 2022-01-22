@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Payee } from 'src/app/models/payee.model';
+
 import { AccountService } from 'src/app/services/account.service';
+
+import { Payee } from 'src/app/models/payee.model';
+import { PayeeForm } from 'src/app/interfaces/payee-form.interface';
+import { Account } from 'src/app/models/account.model';
 
 @Component({
   selector: 'app-accounts',
@@ -11,6 +15,9 @@ export class AccountsComponent implements OnInit {
 
   payeeAccounts:         Payee[] = [];
   initPayeeAccounts:     Payee[] = [];
+
+  accountSelected?:      [Payee, Account];
+  showTransferComponent: boolean = false;
 
   textSearch: string = '';
 
@@ -34,7 +41,7 @@ export class AccountsComponent implements OnInit {
 
   textSearchChanged(){
 
-    if( this.textSearch.length <= 3 ){
+    if( this.textSearch.length < 3 ){
       this.payeeAccounts = this.initPayeeAccounts;
       return
     }
@@ -54,6 +61,16 @@ export class AccountsComponent implements OnInit {
       }
     )
 
+  }
+
+  transfer( payee: Payee, account: Account ): void {
+    this.accountSelected = [ payee, account];
+    this.showTransferComponent = true;
+  }
+
+  backAccounts(): void {
+    this.accountSelected = undefined;
+    this.showTransferComponent = false;
   }
 
 }

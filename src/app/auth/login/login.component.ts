@@ -37,7 +37,7 @@ export class LoginComponent {
     this.userService.login( this.loginForm.value )
         .subscribe({
           next: (resp) => {
-            this.router.navigateByUrl('/home/payee');
+            this.router.navigateByUrl('/home/accounts');
           },
           error: (err) => {
             this.openSnackBar(err.error.msg, 'Aceptar' );

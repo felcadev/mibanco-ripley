@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { map } from 'rxjs';
-import { Bank } from 'src/app/interfaces/bank.inteface';
-import { AccountService } from 'src/app/services/account.service';
-import { BanksService } from 'src/app/services/banks.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { AccountService } from 'src/app/services/account.service';
+
+import { Bank } from 'src/app/interfaces/bank.inteface';
 
 @Component({
   selector: 'app-payee',

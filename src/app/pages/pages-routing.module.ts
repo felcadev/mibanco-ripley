@@ -17,9 +17,9 @@ const routes: Routes = [
     path: 'home',
     component: PageComponent,
     children: [
+      { path: 'accounts'  , canActivate: [AuthGuard] ,component: AccountsComponent },
       { path: 'payee'     , canActivate: [AuthGuard] ,component: PayeeComponent },
       { path: 'transfer'  , canActivate: [AuthGuard] ,component: TransferComponent },
-      { path: 'accounts'  , canActivate: [AuthGuard] ,component: AccountsComponent },
       { path: 'history'   , canActivate: [AuthGuard] ,component: HistoryComponent },
     ]
   },
