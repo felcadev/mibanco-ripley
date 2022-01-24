@@ -1,1 +1,48 @@
-<p>history works!</p>
+<div class="container">
+  <h1>Transferencias Realizadas</h1>
+  <table mat-table [dataSource]="transfers" class="mat-elevation-z8 table">
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let transfer"> {{transfer.date | date: 'dd/MM/yy'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre</th>
+      <td mat-cell *matCellDef="let transfer"> {{transfer.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="rut">
+      <th mat-header-cell *matHeaderCellDef> Rut </th>
+      <td mat-cell *matCellDef="let transfer"> {{transfer.rut}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bankName">
+      <th mat-header-cell *matHeaderCellDef> Banco </th>
+      <td mat-cell *matCellDef="let transfer"> {{transfer.bankName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accountType">
+      <th mat-header-cell *matHeaderCellDef> Tipo </th>
+      <td mat-cell *matCellDef="let transfer"> {{transfer.accountType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accountNumber">
+      <th mat-header-cell *matHeaderCellDef> Cuenta </th>
+      <td mat-cell *matCellDef="let transfer"> {{transfer.accountNumber }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef> Monto </th>
+      <td mat-cell *matCellDef="let transfer"> {{transfer.amount | currency : 'USD' : 'symbol' : '1.0-0'  }} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="handlePage($event)"
+    aria-label="Select page">
+  </mat-paginator>
+
+</div>

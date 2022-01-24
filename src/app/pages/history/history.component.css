@@ -1,0 +1,12 @@
+/* Structure */
+.container {
+  position: relative;
+}
+
+.table{
+  min-width: 850px;
+}
+
+h1{
+  text-align: center;
+}

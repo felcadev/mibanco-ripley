@@ -16,8 +16,15 @@
     </mat-form-field>
   </div>
 
+
+
+
   <mat-list>
     <hr>
+    <mat-list-item *ngIf="payeeAccounts.length < 1">
+      <div mat-line>No existe cuentas agregadas actualmente.</div>
+    </mat-list-item>
+
     <mat-list-item *ngFor="let payee of payeeAccounts">
       <div mat-line>Nombre: {{ payee.name }}</div>
       <div mat-line>Email: {{ payee.email }} </div>

@@ -15,6 +15,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 
 
@@ -36,7 +38,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSelectModule,
     MatListModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatPaginatorModule
   ],
   exports: [
     MatSliderModule,
@@ -51,7 +54,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSelectModule,
     MatListModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatPaginatorModule
   ]
 })
 

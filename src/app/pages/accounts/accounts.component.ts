@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
 
 import { Payee } from 'src/app/models/payee.model';
-import { PayeeForm } from 'src/app/interfaces/payee-form.interface';
 import { Account } from 'src/app/models/account.model';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Transfer } from 'src/app/interfaces/transfer.interface';
+import { TransferPost } from 'src/app/interfaces/transfer-post.interface';
 
 import { Account } from 'src/app/models/account.model';
 import { Payee } from 'src/app/models/payee.model';
@@ -41,7 +41,7 @@ export class TransferComponent implements OnInit {
 
     if(!this.transferForm.valid) return;
 
-    const formData : Transfer = {
+    const formData : TransferPost = {
       accountId: this.account?._id!,
       payeeId: this.payee?._id!,
       amount: this.transferForm.value.amount,

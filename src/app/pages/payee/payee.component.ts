@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AccountService } from 'src/app/services/account.service';
 
 import { Bank } from 'src/app/interfaces/bank.inteface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payee',
@@ -18,19 +19,20 @@ export class PayeeComponent implements OnInit {
 
 
   public payeeForm= this.fb.group({
-    name:           ['felipe', [ Validators.required ]],
-    rut:            ['191195922', [ Validators.required ]],
-    email:          ['felipe@gmail.com', [ Validators.required, Validators.email ]],
-    phoneNumber:    ['948754200', [ Validators.required, Validators.min(1000000) ]],
+    name:           ['', [ Validators.required ]],
+    rut:            ['', [ Validators.required ]],
+    email:          ['', [ Validators.required, Validators.email ]],
+    phoneNumber:    ['', [ Validators.required, Validators.min(1000000) ]],
     bankId:         ['', [ Validators.required ]],
     accountType:    ['', [ Validators.required ]],
-    accountNumber:  ['1234567', [ Validators.required, Validators.min(1000) ]],
+    accountNumber:  ['', [ Validators.required, Validators.min(1000) ]],
   });
 
   constructor(
     private fb: FormBuilder,
     private accountService: AccountService,
     private snackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -58,7 +60,13 @@ export class PayeeComponent implements OnInit {
                         }
                       });
 
+    // wait for...
+    setTimeout(() => {
+      this.router.navigateByUrl('/home/accounts');
+    }, 1000);
+
     this.isLoading = false;
+
   }
 
   openSnackBar(message: string, textBtn: string = 'Aceptar'){
