@@ -15,6 +15,8 @@ export class HistoryComponent implements OnInit {
   limit : number = 1;
   total : number = 0;
 
+  isLoading: boolean = false;
+
   transfers : Transfer[] = [];
 
   // MatPaginator Inputs
@@ -34,16 +36,17 @@ export class HistoryComponent implements OnInit {
   }
 
   getAllMyTransfers(): void {
-
+    this.isLoading = true;
     this.transferService.getAllTransfer(this.page, this.limit).subscribe({
       next  : ( resp ) => {
         this.transfers = resp.transfers;
         this.total = resp.total;
         this.page  = this.page;
         this.limit = this.limit;
-        this.length =this.total;
+        this.length = this.total;
+        this.isLoading = false;
       },
-      error : ( err ) => { console.log(err);}
+      error : ( err ) => { this.isLoading = false }
     })
 
   }

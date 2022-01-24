@@ -18,6 +18,8 @@ export class AccountsComponent implements OnInit {
   accountSelected?:      [Payee, Account];
   showTransferComponent: boolean = false;
 
+  isLoading: boolean = false;
+
   textSearch: string = '';
 
   constructor(
@@ -29,12 +31,16 @@ export class AccountsComponent implements OnInit {
   }
 
   getMyPayeeAccounts() {
+    this.isLoading = true;
     this.accountService.getMyPayee().subscribe({
       next: res => {
         this.initPayeeAccounts  = res;
         this.payeeAccounts      = res;
+        this.isLoading          = false;
       },
-      error: err => console.log(err)
+      error: err => {
+        this.isLoading = false;
+      }
     })
   }
 

@@ -1,5 +1,11 @@
 <div class="container">
-  <h1>Transferencias Realizadas</h1>
+
+  <div class="text-center">
+    <h1 class="inline">Transferencias Realizadas</h1>
+    <mat-spinner *ngIf="isLoading" diameter="25" class="inline"></mat-spinner>
+  </div>
+
+
   <table mat-table [dataSource]="transfers" class="mat-elevation-z8 table">
 
     <ng-container matColumnDef="date">
@@ -44,5 +50,6 @@
   <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="handlePage($event)"
     aria-label="Select page">
   </mat-paginator>
+
 
 </div>

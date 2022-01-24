@@ -7,6 +7,10 @@
   min-width: 850px;
 }
 
-h1{
+.text-center{
   text-align: center;
+}
+
+.inline {
+  display: inline;
 }

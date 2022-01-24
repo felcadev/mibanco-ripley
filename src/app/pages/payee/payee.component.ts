@@ -54,18 +54,17 @@ export class PayeeComponent implements OnInit {
                       .subscribe({
                         next: resp => {
                           this.openSnackBar(resp.msg);
+                          this.isLoading = false;
+                          this.router.navigateByUrl('/home/accounts');
+
                         },
                         error: (err) => {
                           this.openSnackBar(err.error.error)
+                          this.isLoading = false;
                         }
                       });
 
-    // wait for...
-    setTimeout(() => {
-      this.router.navigateByUrl('/home/accounts');
-    }, 1000);
 
-    this.isLoading = false;
 
   }
 

@@ -7,7 +7,7 @@
 
 <div *ngIf="!showTransferComponent">
   <h2> Mis Cuentas</h2>
-
+  <mat-spinner *ngIf="isLoading" diameter="25"></mat-spinner>
   <div>
     <h3>Busqueda Nombre o Rut</h3>
     <mat-form-field class="full-width" appearance="fill">

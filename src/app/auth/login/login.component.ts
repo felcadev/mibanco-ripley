@@ -38,13 +38,14 @@ export class LoginComponent {
         .subscribe({
           next: (resp) => {
             this.router.navigateByUrl('/home/accounts');
+            this.isLoading = false;
           },
           error: (err) => {
             this.openSnackBar(err.error.msg, 'Aceptar' );
+            this.isLoading = false;
           }
         });
 
-    this.isLoading = false;
   }
 
   openSnackBar(message: string, textBtn: string){
