@@ -41,6 +41,8 @@ export class UserService {
                     tap(
                       ( resp: any ) => {
                         localStorage.setItem('token', `${resp.token}`)
+                        localStorage.setItem('userName', `${resp.userName}`)
+
                       }
                     )
                   );

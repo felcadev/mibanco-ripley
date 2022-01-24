@@ -22,7 +22,13 @@
         <mat-label>Monto</mat-label>
         <input matInput formControlName="amount" type="number" required/>
       </mat-form-field>
-      <button class="ancho" mat-raised-button mat-button color="primary" class="full-width">Transferir</button>
+
+      <div class="full-width">
+        <button  *ngIf="isLoading" class="ancho" mat-raised-button mat-button color="primary">
+          <mat-spinner  diameter="20" class="spinner"></mat-spinner>
+        </button>
+        <button [disabled]="isLoading" class="ancho" mat-raised-button mat-button color="primary">Transferir</button>
+      </div>
     </form>
   </div>
 </mat-card>

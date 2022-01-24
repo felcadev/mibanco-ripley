@@ -1,5 +1,3 @@
-import { Bank } from "../interfaces/bank.inteface";
-
 
 export class Account{
 

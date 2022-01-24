@@ -1,13 +1,15 @@
 <mat-toolbar color="primary">
-  <span class="spacer"></span>
   <span>Mi banco - Nueva Transferencia</span>
-  <button mat-button routerLink="/home/accounts">Cuentas</button>
-  <button mat-button routerLink="/home/payee">Nuevo Destinatario</button>
+  <span class="spacer"></span>
+
+  <button mat-button routerLink="/home/accounts">Mis Cuentas</button>
+  <button mat-button routerLink="/home/payee">Nuevo Cuenta</button>
   <button mat-button routerLink="/home/history">Historial</button>
   <span class="spacer"></span>
+  <span>  {{userName}}  </span>
   <button mat-icon-button (click)="logout()" aria-label="icon-button with menu icon"
     matTooltip="Cerrar Sesión"
   >
-    <mat-icon>power_settings_new</mat-icon>
+  <mat-icon>power_settings_new</mat-icon>
   </button>
 </mat-toolbar>

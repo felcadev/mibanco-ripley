@@ -21,6 +21,9 @@ export class TransferComponent implements OnInit {
   payee?: Payee;
   account?: Account;
 
+  isLoading: boolean = false;
+
+
   public transferForm= this.fb.group({
     amount: [0, [ Validators.required, Validators.min(1) ]],
   });
@@ -41,6 +44,8 @@ export class TransferComponent implements OnInit {
 
     if(!this.transferForm.valid) return;
 
+    this.isLoading = true;
+
     const formData : TransferPost = {
       accountId: this.account?._id!,
       payeeId: this.payee?._id!,
@@ -50,10 +55,11 @@ export class TransferComponent implements OnInit {
 
     this.transferService.postTransfer(formData).subscribe({
       next: (resp) => {
+        this.isLoading = false;
         this.router.navigateByUrl('/home/history');
       },
       error: (err) => {
-        console.log(err);
+        this.isLoading = false;
       }
     })
 

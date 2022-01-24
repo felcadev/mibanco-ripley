@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountsComponent } from './accounts/accounts.component';
 
 
+
+
 @NgModule({
   declarations: [
     PayeeComponent,
@@ -29,7 +31,7 @@ import { AccountsComponent } from './accounts/accounts.component';
     PagesRoutingModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
 
   ],
   exports: [
@@ -38,7 +40,7 @@ import { AccountsComponent } from './accounts/accounts.component';
     HistoryComponent,
     PageComponent,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ]
 })
 

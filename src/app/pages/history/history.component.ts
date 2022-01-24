@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
 
 import { Transfer } from 'src/app/interfaces/transfer';
@@ -24,12 +25,11 @@ export class HistoryComponent implements OnInit {
   pageSize = this.limit;
   pageSizeOptions: number[] = [1, 5, 10, 25, 100];
 
-
   displayedColumns: string[] = ['date', 'name', 'rut', 'bankName', 'accountType', 'accountNumber', 'amount'];
 
   constructor(
     private transferService: TransferService,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.getAllMyTransfers();

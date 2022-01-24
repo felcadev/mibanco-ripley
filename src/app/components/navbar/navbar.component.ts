@@ -8,6 +8,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NavbarComponent {
 
+  userName: string = localStorage.getItem('userName') || '';
+
   constructor(
     private userService: UserService
   ) { }
