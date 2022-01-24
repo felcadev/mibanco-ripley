@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule  } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -25,6 +25,7 @@ export class LoginComponent {
     private snackBar: MatSnackBar,
     private router: Router
   ) { }
+
 
   login() {
 

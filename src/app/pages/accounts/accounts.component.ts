@@ -39,6 +39,10 @@ export class AccountsComponent implements OnInit {
         this.isLoading          = false;
       },
       error: err => {
+        // fix heroku service for firts time on browser
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
         this.isLoading = false;
       }
     })
